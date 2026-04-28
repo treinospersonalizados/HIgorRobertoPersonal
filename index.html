@@ -3,231 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Higor Roberto - Consultoria Fitness</title>
+    <title>Higor Roberto | Consultoria Fitness Profissional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Fontes Profissionais -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --glow-color: #3b82f6;
-        }
-
         body {
             background-color: #000;
             color: #fff;
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
         }
 
-        /* Fundo Preto Brilhante com Pontos Flutuantes */
-        .bg-glossy {
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
-            position: relative;
-        }
+        .font-impact { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; }
 
-        .particles {
+        /* Fundo com Partículas Aleatórias */
+        #particles-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
             pointer-events: none;
-            background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.15;
-            z-index: 1;
-            animation: moveParticles 20s linear infinite;
         }
 
-        @keyframes moveParticles {
-            from { background-position: 0 0; }
-            to { background-position: 100px 100px; }
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float-random linear infinite;
         }
 
-        /* Banner com Foto de Academia e Opacidade */
+        @keyframes float-random {
+            from { transform: translateY(0) translateX(0); opacity: 0; }
+            20% { opacity: 0.4; }
+            80% { opacity: 0.4; }
+            to { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        /* Banner Principal */
         .hero-section {
             position: relative;
-            background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover;
-            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover;
+            height: 70vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            z-index: 1;
         }
 
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75); 
-        }
-
-        /* Logo Higor Roberto em BRANCO com Brilho */
-        .font-higor-logo {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.2rem;
-            color: #ffffff !important; /* Alterado para Branco */
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.3);
-            letter-spacing: 2px;
-        }
-
-        /* Títulos em Caligrafia Diferente */
-        .font-titulo {
-            font-family: 'Dancing Script', cursive;
-            color: #fff;
-        }
-
-        /* Contorno Brilhante nos Links do Menu */
+        /* Contorno Brilhante Menu */
         .nav-link {
             border: 1px solid transparent;
-            padding: 8px 20px;
-            transition: 0.4s ease;
-            font-weight: 500;
+            padding: 5px 15px;
+            transition: 0.4s;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
         }
         .nav-link:hover {
-            border-radius: 30px;
             border-color: #fff;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+            border-radius: 5px;
         }
 
-        /* Botão Contato Pulsante Verde Brilhante */
+        /* Botão Contato Pulsante */
         .btn-pulse {
-            background-color: #22c55e;
-            animation: pulse-glow 2s infinite;
-            box-shadow: 0 0 10px #22c55e;
+            background: #22c55e;
+            animation: pulse-green 2s infinite;
         }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.8); transform: scale(1); }
-            70% { box-shadow: 0 0 25px 15px rgba(34, 197, 94, 0); transform: scale(1.05); }
-            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); transform: scale(1); }
-        }
-
-        /* Cards Aesthetic Coloridos */
-        .card-aesthetic {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.5s;
-        }
-        .card-blue:hover { border-color: #3b82f6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); }
-        .card-pink:hover { border-color: #f472b6; box-shadow: 0 0 30px rgba(244, 114, 182, 0.4); }
-
-        /* WhatsApp Flutuante Pulsante */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 35px;
-            right: 35px;
-            background: #25d366;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: white;
-            z-index: 100;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.8);
-            animation: pulse-green 1.8s infinite;
-        }
-
         @keyframes pulse-green {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); box-shadow: 0 0 30px rgba(37, 211, 102, 0.9); }
-            100% { transform: scale(1); }
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 20px 10px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Cards Estilizados */
+        .card-aesthetic {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
+        }
+        .card-aesthetic:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+        }
+
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; color: #fff;
+            z-index: 100;
+            animation: pulse-simple 2s infinite;
+        }
+        @keyframes pulse-simple {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { transform: scale(1.1); box-shadow: 0 0 15px 10px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
     </style>
 </head>
-<body class="bg-glossy">
+<body class="bg-black">
 
-    <div class="particles"></div>
+    <div id="particles-container"></div>
 
-    <header class="fixed w-full z-50 bg-black/90 border-b border-white/5 backdrop-blur-lg">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <h1 class="font-higor-logo">Higor Roberto</h1>
+    <header class="fixed w-full z-50 bg-black/90 border-b border-white/10 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-impact text-white">HIGOR ROBERTO</h1>
             <nav class="hidden md:flex space-x-4 items-center">
                 <a href="#sobre" class="nav-link">Sobre</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#planos" class="nav-link">Planos</a>
-                <a href="https://wa.me/5544999999999" class="btn-pulse text-white px-7 py-2.5 rounded-full font-black uppercase text-sm tracking-widest ml-4">Contato</a>
+                <a href="https://wa.me/5544999999999" class="btn-pulse px-6 py-2 rounded font-bold text-xs text-white">CONTATO</a>
             </nav>
         </div>
     </header>
 
     <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="relative z-10 text-center px-4">
-            <h2 class="text-5xl md:text-8xl font-black mb-4 tracking-tighter uppercase italic">
-                Treino <span class="text-blue-500">Inteligente</span>
-            </h2>
-            <p class="text-2xl md:text-3xl text-gray-200 font-titulo mb-10">
-                Consultoria em Maringá - PR & Online
-            </p>
-            <div class="mt-8">
-                <a href="#planos" class="bg-white text-black px-12 py-5 rounded-full font-black hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.2)] uppercase tracking-widest">
-                    Começar Agora
-                </a>
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-5xl md:text-8xl font-impact mb-4">Treino Inteligente,<br><span class="text-blue-500">Resultados Reais.</span></h2>
+            <p class="text-lg md:text-xl text-gray-400 font-bold uppercase tracking-widest">Consultoria Online e Presencial | Maringá - PR</p>
+            <div class="mt-10">
+                <a href="#planos" class="bg-blue-600 px-10 py-4 rounded font-black hover:bg-blue-700 transition uppercase tracking-tighter">Começar Agora</a>
             </div>
         </div>
     </section>
 
-    <section id="servicos" class="py-24 container mx-auto px-6">
-        <h3 class="text-5xl text-center font-titulo mb-20 text-blue-400">Metodologia</h3>
-        <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-            <div class="card-aesthetic card-pink p-12 rounded-[40px] text-center">
-                <i class="fas fa-medal text-5xl text-pink-500 mb-6"></i>
-                <h4 class="text-2xl font-bold mb-4 uppercase tracking-wider">Planejamento Único</h4>
-                <p class="text-gray-400 leading-relaxed">Esqueça fichas prontas. Seu treino é construído do zero, baseado na sua rotina em Maringá ou qualquer lugar do mundo.</p>
+    <!-- SEÇÃO SOBRE -->
+    <section id="sobre" class="relative z-10 py-24 container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            <!-- Espaço para Foto -->
+            <div class="md:w-1/2 w-full">
+                <div class="aspect-[4/5] bg-zinc-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative group">
+                    <!-- Substitua o src pela sua foto -->
+                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1469&auto=format&fit=crop" alt="Higor Roberto" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+                        <p class="font-impact text-3xl">HIGOR ROBERTO</p>
+                        <p class="text-blue-500 font-bold">Graduado Bacharel pela UEM</p>
+                    </div>
+                </div>
             </div>
-            <div class="card-aesthetic card-blue p-12 rounded-[40px] text-center">
-                <i class="fas fa-bolt text-5xl text-blue-500 mb-6"></i>
-                <h4 class="text-2xl font-bold mb-4 uppercase tracking-wider">Acompanhamento Direto</h4>
-                <p class="text-gray-400 leading-relaxed">Suporte prioritário via WhatsApp. Dúvidas sobre execução ou carga? Eu respondo pessoalmente.</p>
+            
+            <div class="md:w-1/2">
+                <h3 class="text-4xl font-impact mb-6 text-white uppercase">Sobre o Treinador</h3>
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    Com formação em <strong>Bacharel em Educação Física pela UEM</strong> (Universidade Estadual de Maringá), utilizo a ciência do movimento para entregar resultados reais e sustentáveis.
+                </p>
+                <p class="text-gray-400 leading-relaxed mb-8">
+                    Meu trabalho em Maringá-PR e no mundo digital é focado na individualidade biológica. Cada treino que monto é uma peça única de engenharia corporal, desenhada para superar seus limites com máxima segurança.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="border-l-4 border-blue-600 pl-4">
+                        <h4 class="font-bold text-white uppercase text-sm">Consultoria</h4>
+                        <p class="text-gray-500 text-xs">Online e Presencial</p>
+                    </div>
+                    <div class="border-l-4 border-blue-600 pl-4">
+                        <h4 class="font-bold text-white uppercase text-sm">Localização</h4>
+                        <p class="text-gray-500 text-xs">Maringá - PR</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="planos" class="py-24 bg-white/[0.02] border-y border-white/5">
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="relative z-10 py-24 bg-white/[0.02]">
         <div class="container mx-auto px-6">
-            <h3 class="text-5xl text-center font-titulo mb-20">Investimento</h3>
-            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                
-                <div class="card-aesthetic p-10 rounded-[40px] border-2 border-blue-600/30 relative flex flex-col justify-between">
-                    <div>
-                        <span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-6 py-1.5 rounded-full text-xs font-black tracking-widest">ONLINE</span>
-                        <h4 class="text-3xl font-black mb-2 uppercase">Consultoria</h4>
-                        <div class="text-6xl font-black my-8">R$ 97<span class="text-base font-light text-gray-500 ml-2">/mês</span></div>
-                        <ul class="space-y-5 mb-10 text-gray-300">
-                            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i> Treino Individualizado (Vídeos explicativos)</li>
-                            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i> Feedback semanal</li>
-                            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i> Chat direto WhatsApp</li>
-                        </ul>
-                    </div>
-                    <a href="COLE_SEU_LINK_DE_PAGAMENTO_AQUI" class="block text-center bg-blue-600 hover:bg-blue-400 py-5 rounded-2xl font-black transition-all shadow-lg shadow-blue-900/40 uppercase tracking-tighter">Assinar Agora</a>
+            <h3 class="text-4xl text-center font-impact mb-16">Metodologia Profissional</h3>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="card-aesthetic p-10 rounded-3xl text-center">
+                    <i class="fas fa-dumbbell text-4xl text-blue-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4 uppercase">Individualização</h4>
+                    <p class="text-gray-400">Treinos montados do zero para sua biomecânica. Nada de planilhas genéricas.</p>
                 </div>
-
-                <div class="card-aesthetic p-10 rounded-[40px] border border-white/10 flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-3xl font-black mb-2 uppercase">Presencial</h4>
-                        <div class="text-5xl font-black my-8">R$ 350<span class="text-base font-light text-gray-500 ml-2">/mês</span></div>
-                        <p class="text-gray-400 mb-10 leading-relaxed font-medium">Atendimento presencial em <strong>Maringá - PR</strong>. Correção postural em tempo real e motivação máxima.</p>
-                    </div>
-                    <a href="https://wa.me/5544999999999?text=Quero+saber+sobre+o+personal+presencial" class="block text-center border-2 border-white/20 hover:bg-white hover:text-black py-5 rounded-2xl font-black transition-all uppercase tracking-tighter">Ver Disponibilidade</a>
+                <div class="card-aesthetic p-10 rounded-3xl text-center">
+                    <i class="fas fa-mobile-alt text-4xl text-blue-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4 uppercase">Suporte Premium</h4>
+                    <p class="text-gray-400">Acesso direto ao meu WhatsApp pessoal para dúvidas e ajustes de carga.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <footer class="py-16 text-center">
-        <p class="font-higor-logo text-white mb-4">Higor Roberto</p>
-        <div class="flex justify-center space-x-6 text-gray-500 mb-6">
-            <a href="#" class="hover:text-white transition"><i class="fab fa-instagram text-2xl"></i></a>
-            <a href="https://wa.me/5544999999999" class="hover:text-green-500 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
+    <!-- PLANOS -->
+    <section id="planos" class="relative z-10 py-24 container mx-auto px-6">
+        <h3 class="text-4xl text-center font-impact mb-16 italic">Planos Acessíveis</h3>
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            <div class="card-aesthetic p-12 rounded-[40px] border-t-4 border-blue-600">
+                <h4 class="text-2xl font-bold mb-2 uppercase">Consultoria Online</h4>
+                <div class="text-6xl font-impact my-6">R$ 97<span class="text-sm font-light text-gray-500 ml-2">/mês</span></div>
+                <ul class="space-y-4 mb-10 text-gray-400 text-sm font-bold uppercase">
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i> Treino Personalizado</li>
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i> Suporte WhatsApp</li>
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i> Vídeos de Execução</li>
+                </ul>
+                <!-- ESPAÇO PARA LINK DE PAGAMENTO -->
+                <a href="COLE_SEU_LINK_DE_PAGAMENTO_AQUI" class="block text-center bg-blue-600 py-4 rounded-xl font-black uppercase tracking-tighter">Assinar Agora</a>
+            </div>
+
+            <div class="card-aesthetic p-12 rounded-[40px]">
+                <h4 class="text-2xl font-bold mb-2 uppercase">Personal Presencial</h4>
+                <div class="text-6xl font-impact my-6">R$ 350<span class="text-sm font-light text-gray-500 ml-2">/mês</span></div>
+                <p class="text-gray-400 text-sm mb-10 leading-relaxed font-bold uppercase">Atendimento VIP em academias de Maringá-PR. Vagas limitadas.</p>
+                <a href="https://wa.me/5544999999999" class="block text-center border-2 border-white/20 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-white hover:text-black transition">Consultar Vagas</a>
+            </div>
         </div>
-        <p class="text-gray-600 text-xs uppercase tracking-widest">Bacharel em Ed. Física UEM | Maringá-PR</p>
+    </section>
+
+    <footer class="py-20 text-center border-t border-white/10">
+        <h2 class="text-2xl font-impact mb-4">HIGOR ROBERTO</h2>
+        <p class="text-gray-600 text-xs tracking-widest uppercase mb-8 italic">Bacharel Ed. Física UEM | Maringá - PR</p>
+        <div class="flex justify-center space-x-8">
+            <a href="#" class="text-gray-500 hover:text-white transition text-2xl"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5544999999999" class="text-gray-500 hover:text-green-500 transition text-2xl"><i class="fab fa-whatsapp"></i></a>
+        </div>
     </footer>
 
-    <a href="https://wa.me/5544999999999?text=Olá+Higor,+vi+seu+site+e+quero+mudar+meu+shape!" class="whatsapp-float" title="Falar no WhatsApp">
+    <a href="https://wa.me/5544999999999?text=Olá+Higor,+quero+começar+meu+treino!" class="whatsapp-fixed">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script>
+        // Sistema de Partículas Aleatórias
+        const container = document.getElementById('particles-container');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            
+            const size = Math.random() * 5 + 2 + 'px';
+            const duration = Math.random() * 15 + 10 + 's';
+            const delay = Math.random() * 20 + 's';
+            
+            p.style.width = size;
+            p.style.height = size;
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.top = '110vh';
+            p.style.animationDuration = duration;
+            p.style.animationDelay = delay;
+            
+            // Direções variadas
+            const drift = (Math.random() - 0.5) * 200 + 'px';
+            p.style.setProperty('--drift', drift);
+
+            container.appendChild(p);
+        }
+    </script>
 </body>
 </html>
