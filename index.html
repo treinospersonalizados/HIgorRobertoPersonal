@@ -6,7 +6,6 @@
     <title>Higor Roberto - Consultoria Fitness</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Fontes Caligráficas -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     
     <style>
@@ -30,17 +29,23 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
-            background-image: radial-gradient(#fff 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.1;
+            background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.15;
             z-index: 1;
+            animation: moveParticles 20s linear infinite;
+        }
+
+        @keyframes moveParticles {
+            from { background-position: 0 0; }
+            to { background-position: 100px 100px; }
         }
 
         /* Banner com Foto de Academia e Opacidade */
         .hero-section {
             position: relative;
             background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover;
-            height: 80vh;
+            height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -49,82 +54,84 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.7); /* Opacidade baixa para visibilidade */
+            background: rgba(0, 0, 0, 0.75); 
         }
 
-        /* Fonte Birds of Paradise (Simulada) */
-        .font-higor {
+        /* Logo Higor Roberto em BRANCO com Brilho */
+        .font-higor-logo {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            color: #000; /* Cor preta conforme solicitado */
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            font-size: 3.2rem;
+            color: #ffffff !important; /* Alterado para Branco */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
         }
 
-        /* Títulos em Caligrafia diferente */
+        /* Títulos em Caligrafia Diferente */
         .font-titulo {
             font-family: 'Dancing Script', cursive;
             color: #fff;
         }
 
-        /* Contorno Brilhante nos Links */
+        /* Contorno Brilhante nos Links do Menu */
         .nav-link {
             border: 1px solid transparent;
-            padding: 5px 15px;
-            transition: 0.3s;
+            padding: 8px 20px;
+            transition: 0.4s ease;
+            font-weight: 500;
         }
         .nav-link:hover {
-            border-radius: 20px;
-            border-color: var(--glow-color);
-            box-shadow: 0 0 15px var(--glow-color);
+            border-radius: 30px;
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        /* Botão Contato Pulsante */
+        /* Botão Contato Pulsante Verde Brilhante */
         .btn-pulse {
             background-color: #22c55e;
             animation: pulse-glow 2s infinite;
+            box-shadow: 0 0 10px #22c55e;
         }
 
         @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); transform: scale(1); }
-            70% { box-shadow: 0 0 20px 10px rgba(34, 197, 94, 0); transform: scale(1.05); }
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.8); transform: scale(1); }
+            70% { box-shadow: 0 0 25px 15px rgba(34, 197, 94, 0); transform: scale(1.05); }
             100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); transform: scale(1); }
         }
 
-        /* Cards Aesthetic */
+        /* Cards Aesthetic Coloridos */
         .card-aesthetic {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.4s;
+            transition: 0.5s;
         }
-        .card-aesthetic:hover {
-            border-color: #f472b6; /* Rosa Aesthetic */
-            box-shadow: 0 0 25px rgba(244, 114, 182, 0.3);
-        }
+        .card-blue:hover { border-color: #3b82f6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); }
+        .card-pink:hover { border-color: #f472b6; box-shadow: 0 0 30px rgba(244, 114, 182, 0.4); }
 
         /* WhatsApp Flutuante Pulsante */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 35px;
+            right: 35px;
             background: #25d366;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 32px;
             color: white;
             z-index: 100;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
-            animation: pulse-green 2s infinite;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.8);
+            animation: pulse-green 1.8s infinite;
         }
 
         @keyframes pulse-green {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 15px 10px rgba(37, 211, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); box-shadow: 0 0 30px rgba(37, 211, 102, 0.9); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -132,89 +139,93 @@
 
     <div class="particles"></div>
 
-    <!-- Header -->
-    <header class="fixed w-full z-50 bg-black/80 backdrop-blur-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="font-higor">Higor Roberto</h1>
-            <nav class="hidden md:flex space-x-6 items-center">
+    <header class="fixed w-full z-50 bg-black/90 border-b border-white/5 backdrop-blur-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="font-higor-logo">Higor Roberto</h1>
+            <nav class="hidden md:flex space-x-4 items-center">
                 <a href="#sobre" class="nav-link">Sobre</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#planos" class="nav-link">Planos</a>
-                <a href="https://wa.me/5544999999999" class="btn-pulse text-white px-6 py-2 rounded-full font-bold">Contato</a>
+                <a href="https://wa.me/5544999999999" class="btn-pulse text-white px-7 py-2.5 rounded-full font-black uppercase text-sm tracking-widest ml-4">Contato</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="relative z-10 text-center px-4">
-            <h2 class="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">TREINO INTELIGENTE,<br><span class="text-blue-500">RESULTADOS REAIS.</span></h2>
-            <p class="text-xl md:text-2xl text-gray-300 font-higor !text-white" style="font-size: 2rem;">Maringá - PR</p>
-            <div class="mt-10">
-                <a href="#planos" class="bg-white text-black px-10 py-4 rounded-full font-black hover:bg-blue-500 hover:text-white transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.3)]">COMEÇAR AGORA</a>
+            <h2 class="text-5xl md:text-8xl font-black mb-4 tracking-tighter uppercase italic">
+                Treino <span class="text-blue-500">Inteligente</span>
+            </h2>
+            <p class="text-2xl md:text-3xl text-gray-200 font-titulo mb-10">
+                Consultoria em Maringá - PR & Online
+            </p>
+            <div class="mt-8">
+                <a href="#planos" class="bg-white text-black px-12 py-5 rounded-full font-black hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.2)] uppercase tracking-widest">
+                    Começar Agora
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Serviços (Estilo Aesthetic) -->
-    <section id="servicos" class="py-20 container mx-auto px-6">
-        <h3 class="text-4xl text-center font-titulo mb-16">Como transformamos seu corpo</h3>
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="card-aesthetic p-10 rounded-3xl text-center">
-                <i class="fas fa-dumbbell text-4xl text-pink-400 mb-6"></i>
-                <h4 class="text-2xl font-bold mb-4">Planejamento Único</h4>
-                <p class="text-gray-400">Treinos pensados exclusivamente na sua biomecânica e objetivos reais.</p>
+    <section id="servicos" class="py-24 container mx-auto px-6">
+        <h3 class="text-5xl text-center font-titulo mb-20 text-blue-400">Metodologia</h3>
+        <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <div class="card-aesthetic card-pink p-12 rounded-[40px] text-center">
+                <i class="fas fa-medal text-5xl text-pink-500 mb-6"></i>
+                <h4 class="text-2xl font-bold mb-4 uppercase tracking-wider">Planejamento Único</h4>
+                <p class="text-gray-400 leading-relaxed">Esqueça fichas prontas. Seu treino é construído do zero, baseado na sua rotina em Maringá ou qualquer lugar do mundo.</p>
             </div>
-            <div class="card-aesthetic p-10 rounded-3xl text-center border-blue-500/30">
-                <i class="fas fa-comments text-4xl text-blue-400 mb-6"></i>
-                <h4 class="text-2xl font-bold mb-4">Suporte Premium</h4>
-                <p class="text-gray-400">Acesso direto ao meu WhatsApp para correções e ajustes imediatos.</p>
+            <div class="card-aesthetic card-blue p-12 rounded-[40px] text-center">
+                <i class="fas fa-bolt text-5xl text-blue-500 mb-6"></i>
+                <h4 class="text-2xl font-bold mb-4 uppercase tracking-wider">Acompanhamento Direto</h4>
+                <p class="text-gray-400 leading-relaxed">Suporte prioritário via WhatsApp. Dúvidas sobre execução ou carga? Eu respondo pessoalmente.</p>
             </div>
         </div>
     </section>
 
-    <!-- Planos (Valores Acessíveis) -->
-    <section id="planos" class="py-20 bg-white/5">
+    <section id="planos" class="py-24 bg-white/[0.02] border-y border-white/5">
         <div class="container mx-auto px-6">
-            <h3 class="text-4xl text-center font-titulo mb-16">Valores Acessíveis</h3>
-            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <h3 class="text-5xl text-center font-titulo mb-20">Investimento</h3>
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                 
-                <!-- Plano 1 -->
-                <div class="card-aesthetic p-8 rounded-3xl border-2 border-blue-500/50 relative">
-                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-500 px-4 py-1 rounded-full text-sm font-bold">MAIS VENDIDO</span>
-                    <h4 class="text-3xl font-bold mb-2">Consultoria Online</h4>
-                    <div class="text-5xl font-black my-6">R$ 97<span class="text-sm font-light text-gray-400">/mês</span></div>
-                    <ul class="space-y-4 mb-8 text-gray-300">
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Treino Individualizado (PDF/Vídeo)</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Ajustes quinzenais</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i> Suporte via WhatsApp</li>
-                    </ul>
-                    <!-- Link de Pagamento 1 -->
-                    <a href="COLE_SEU_LINK_DE_PAGAMENTO_AQUI" class="block text-center bg-blue-600 hover:bg-blue-400 py-4 rounded-xl font-bold transition">ASSINAR AGORA</a>
+                <div class="card-aesthetic p-10 rounded-[40px] border-2 border-blue-600/30 relative flex flex-col justify-between">
+                    <div>
+                        <span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-6 py-1.5 rounded-full text-xs font-black tracking-widest">ONLINE</span>
+                        <h4 class="text-3xl font-black mb-2 uppercase">Consultoria</h4>
+                        <div class="text-6xl font-black my-8">R$ 97<span class="text-base font-light text-gray-500 ml-2">/mês</span></div>
+                        <ul class="space-y-5 mb-10 text-gray-300">
+                            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i> Treino Individualizado (Vídeos explicativos)</li>
+                            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i> Feedback semanal</li>
+                            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i> Chat direto WhatsApp</li>
+                        </ul>
+                    </div>
+                    <a href="COLE_SEU_LINK_DE_PAGAMENTO_AQUI" class="block text-center bg-blue-600 hover:bg-blue-400 py-5 rounded-2xl font-black transition-all shadow-lg shadow-blue-900/40 uppercase tracking-tighter">Assinar Agora</a>
                 </div>
 
-                <!-- Plano 2 -->
-                <div class="card-aesthetic p-8 rounded-3xl">
-                    <h4 class="text-3xl font-bold mb-2">Personal Presencial</h4>
-                    <div class="text-5xl font-black my-6">R$ 350<span class="text-sm font-light text-gray-400">/mês</span></div>
-                    <p class="text-gray-400 mb-8">Atendimento VIP em Maringá-PR. Foco total na execução e performance.</p>
-                    <!-- Link de Pagamento 2 -->
-                    <a href="COLE_SEU_LINK_DE_PAGAMENTO_AQUI" class="block text-center border border-white/30 hover:bg-white hover:text-black py-4 rounded-xl font-bold transition">RESERVAR VAGA</a>
+                <div class="card-aesthetic p-10 rounded-[40px] border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-3xl font-black mb-2 uppercase">Presencial</h4>
+                        <div class="text-5xl font-black my-8">R$ 350<span class="text-base font-light text-gray-500 ml-2">/mês</span></div>
+                        <p class="text-gray-400 mb-10 leading-relaxed font-medium">Atendimento presencial em <strong>Maringá - PR</strong>. Correção postural em tempo real e motivação máxima.</p>
+                    </div>
+                    <a href="https://wa.me/5544999999999?text=Quero+saber+sobre+o+personal+presencial" class="block text-center border-2 border-white/20 hover:bg-white hover:text-black py-5 rounded-2xl font-black transition-all uppercase tracking-tighter">Ver Disponibilidade</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-10 text-center border-t border-white/10">
-        <p class="font-higor text-white text-2xl">Higor Roberto</p>
-        <p class="text-gray-500 text-sm mt-2">© 2026 - Bacharel em Ed. Física UEM</p>
+    <footer class="py-16 text-center">
+        <p class="font-higor-logo text-white mb-4">Higor Roberto</p>
+        <div class="flex justify-center space-x-6 text-gray-500 mb-6">
+            <a href="#" class="hover:text-white transition"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="https://wa.me/5544999999999" class="hover:text-green-500 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
+        </div>
+        <p class="text-gray-600 text-xs uppercase tracking-widest">Bacharel em Ed. Física UEM | Maringá-PR</p>
     </footer>
 
-    <!-- WhatsApp Pulsante -->
-    <a href="https://wa.me/5544999999999?text=Olá+Higor,+vim+pelo+site+e+quero+treinar!" class="whatsapp-float">
+    <a href="https://wa.me/5544999999999?text=Olá+Higor,+vi+seu+site+e+quero+mudar+meu+shape!" class="whatsapp-float" title="Falar no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
