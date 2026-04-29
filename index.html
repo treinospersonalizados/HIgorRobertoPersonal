@@ -58,17 +58,28 @@
             margin-right: 10px;
         }
 
-        /* NOVA ANIMAÇÃO: Seta indicando para clicar sobre o icone */
-        .click-arrow {
+        /* NOVA ANIMAÇÃO: Seta sobrepondo o ícone */
+        .icon-wrapper {
+            position: relative;
             display: inline-block;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            animation: pointDown 0.8s infinite alternate;
         }
 
-        @keyframes pointDown {
-            0% { transform: translateY(0); opacity: 0.5; }
-            100% { transform: translateY(5px); opacity: 1; }
+        .click-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            color: #fff;
+            z-index: 20;
+            pointer-events: none;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+            animation: pointOver 0.8s infinite alternate;
+        }
+
+        @keyframes pointOver {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            100% { transform: translate(-50%, -70%) scale(1.2); opacity: 1; }
         }
 
         /* Rodapé Estilizado */
@@ -235,16 +246,20 @@
             
             <div class="flex flex-wrap justify-center gap-12 md:gap-24 mb-12">
                 <a href="https://www.instagram.com/higorobertoo.personal" target="_blank" class="group flex flex-col items-center">
-                    <i class="fas fa-mouse-pointer click-arrow"></i>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="w-20 h-20 mb-4 group-hover:scale-110 transition duration-300" alt="Instagram">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-mouse-pointer click-arrow"></i>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="w-20 h-20 mb-4 group-hover:scale-110 transition duration-300" alt="Instagram">
+                    </div>
                     <div class="flex items-center text-white font-bold text-sm tracking-tighter">
                         @HIGOROBERTOO.PERSONAL
                     </div>
                 </a>
 
                 <a href="https://wa.me/5544988225166" target="_blank" class="group flex flex-col items-center">
-                    <i class="fas fa-mouse-pointer click-arrow"></i>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-20 h-20 mb-4 group-hover:scale-110 transition duration-300" alt="WhatsApp">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-mouse-pointer click-arrow"></i>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-20 h-20 mb-4 group-hover:scale-110 transition duration-300" alt="WhatsApp">
+                    </div>
                     <div class="flex items-center text-white font-bold text-sm tracking-tighter">
                         WHATSAPP
                     </div>
