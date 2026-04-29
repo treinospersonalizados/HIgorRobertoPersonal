@@ -44,12 +44,33 @@
         /* Banner Principal */
         .hero-section {
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
                         url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover;
-            height: 70vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             z-index: 1;
+        }
+
+        /* Logo nos títulos */
+        .logo-inline {
+            height: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        /* Animação da Seta */
+        .click-indicator {
+            animation: bounceSide 1s infinite;
+            display: inline-block;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        @keyframes bounceSide {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
         }
 
         /* Contorno Brilhante Menu */
@@ -102,11 +123,6 @@
             z-index: 100;
             animation: pulse-simple 2s infinite;
         }
-        @keyframes pulse-simple {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-            70% { transform: scale(1.1); box-shadow: 0 0 15px 10px rgba(37, 211, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
     </style>
 </head>
 <body class="bg-black">
@@ -115,18 +131,36 @@
 
     <header class="fixed w-full z-50 bg-black/90 border-b border-white/10 backdrop-blur-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-impact text-white">HIGOR ROBERTO</h1>
+            <h1 class="text-2xl font-impact text-white flex items-center">
+                <img src="https://i.imgur.com/vHbeA84.jpeg" class="logo-inline" alt="HR Logo"> HIGOR ROBERTO
+            </h1>
             <nav class="hidden md:flex space-x-4 items-center">
                 <a href="#sobre" class="nav-link">Sobre</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#planos" class="nav-link">Planos</a>
-                <a href="https://wa.me/5544988225166" class="btn-pulse px-6 py-2 rounded font-bold text-xs text-white">CONTATO</a>
+                <a href="https://wa.me/5544988225166" target="_blank" class="btn-pulse px-6 py-2 rounded font-bold text-xs text-white">CONTATO</a>
             </nav>
         </div>
     </header>
 
     <section class="hero-section">
         <div class="container mx-auto px-6 text-center">
+            <!-- Ícones de Destaque -->
+            <div class="flex justify-center gap-8 mb-8 items-center">
+                <div class="text-center group">
+                    <a href="https://www.instagram.com/higorobertoo.personal?igsh=cTAycDBibTdsdGsw" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="w-16 h-16 hover:scale-110 transition shadow-lg" alt="Instagram">
+                        <p class="text-xs mt-2 font-bold">@higorobertoo.personal <i class="fas fa-mouse-pointer click-indicator"></i></p>
+                    </a>
+                </div>
+                <div class="text-center group">
+                    <a href="https://wa.me/5544988225166" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-16 h-16 hover:scale-110 transition shadow-lg" alt="WhatsApp">
+                        <p class="text-xs mt-2 font-bold">WHATSAPP <i class="fas fa-mouse-pointer click-indicator"></i></p>
+                    </a>
+                </div>
+            </div>
+
             <h2 class="text-5xl md:text-8xl font-impact mb-4">Treino Inteligente,<br><span class="text-blue-500">Resultados Reais.</span></h2>
             <p class="text-lg md:text-xl text-gray-400 font-bold uppercase tracking-widest">Consultoria Online e Presencial | Maringá - PR</p>
             <div class="mt-10">
@@ -138,22 +172,23 @@
     <!-- SEÇÃO SOBRE -->
     <section id="sobre" class="relative z-10 py-24 container mx-auto px-6">
         <div class="flex flex-col md:flex-row items-center gap-16">
-            <!-- Espaço para Foto -->
             <div class="md:w-1/2 w-full">
                 <div class="aspect-[4/5] bg-zinc-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative group">
-                    <!-- Substitua o src pela sua foto -->
-                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1469&auto=format&fit=crop" alt="Higor Roberto" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <!-- LOGO NO LUGAR DA FOTO -->
+                    <img src="https://i.imgur.com/vHbeA84.jpeg" alt="Higor Roberto Logo" class="w-full h-full object-contain p-10 opacity-90 group-hover:opacity-100 transition duration-500">
                     <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
-                        <p class="font-impact text-3xl">HIGOR ROBERTO</p>
-                        <p class="text-blue-500 font-bold">Graduado Bacharel pela UEM</p>
+                        <p class="font-impact text-3xl flex items-center">HIGOR ROBERTO</p>
+                        <p class="text-white font-black text-lg">Graduado Bacharel pela UEM</p>
                     </div>
                 </div>
             </div>
             
             <div class="md:w-1/2">
-                <h3 class="text-4xl font-impact mb-6 text-white uppercase">Sobre o Treinador</h3>
+                <h3 class="text-4xl font-impact mb-6 text-white uppercase flex items-center">
+                    Sobre o Treinador
+                </h3>
                 <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                    Com formação em <strong>Bacharel em Educação Física pela UEM</strong> (Universidade Estadual de Maringá), utilizo a ciência do movimento para entregar resultados reais e sustentáveis.
+                    Com formação em <strong class="text-white">Bacharel em Educação Física pela UEM</strong> (Universidade Estadual de Maringá), utilizo a ciência do movimento para entregar resultados reais e sustentáveis.
                 </p>
                 <p class="text-gray-400 leading-relaxed mb-8">
                     Meu trabalho em Maringá-PR e no mundo digital é focado na individualidade biológica. Cada treino que monto é uma peça única de engenharia corporal, desenhada para superar seus limites com máxima segurança.
@@ -195,7 +230,6 @@
     <section id="planos" class="relative z-10 py-24 container mx-auto px-6">
         <h3 class="text-4xl text-center font-impact mb-16 italic">Planos Acessíveis</h3>
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            
             <div class="card-aesthetic p-12 rounded-[40px] border-t-4 border-blue-600">
                 <h4 class="text-2xl font-bold mb-2 uppercase">Consultoria Online</h4>
                 <div class="text-6xl font-impact my-6">R$ 97<span class="text-sm font-light text-gray-500 ml-2">/mês</span></div>
@@ -204,56 +238,45 @@
                     <li><i class="fas fa-check text-blue-500 mr-2"></i> Suporte WhatsApp</li>
                     <li><i class="fas fa-check text-blue-500 mr-2"></i> Vídeos de Execução</li>
                 </ul>
-                <!-- ESPAÇO PARA LINK DE PAGAMENTO -->
-                <a href="COLE_SEU_LINK_DE_PAGAMENTO_AQUI" class="block text-center bg-blue-600 py-4 rounded-xl font-black uppercase tracking-tighter">Assinar Agora</a>
+                <a href="#" target="_blank" class="block text-center bg-blue-600 py-4 rounded-xl font-black uppercase tracking-tighter">Assinar Agora</a>
             </div>
 
             <div class="card-aesthetic p-12 rounded-[40px]">
                 <h4 class="text-2xl font-bold mb-2 uppercase">Personal Presencial</h4>
                 <div class="text-6xl font-impact my-6">R$ 350<span class="text-sm font-light text-gray-500 ml-2">/mês</span></div>
                 <p class="text-gray-400 text-sm mb-10 leading-relaxed font-bold uppercase">Atendimento VIP em academias de Maringá-PR. Vagas limitadas.</p>
-                <a href="https://wa.me/5544988225166" class="block text-center border-2 border-white/20 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-white hover:text-black transition">Consultar Vagas</a>
+                <a href="https://wa.me/5544988225166" target="_blank" class="block text-center border-2 border-white/20 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-white hover:text-black transition">Consultar Vagas</a>
             </div>
         </div>
     </section>
 
     <footer class="py-20 text-center border-t border-white/10">
-        <h2 class="text-2xl font-impact mb-4">HIGOR ROBERTO</h2>
-        <p class="text-gray-600 text-xs tracking-widest uppercase mb-8 italic">Bacharel Ed. Física UEM | Maringá - PR</p>
+        <h2 class="text-2xl font-impact mb-4 flex justify-center items-center">
+            <img src="https://i.imgur.com/vHbeA84.jpeg" class="logo-inline" alt="HR Logo"> HIGOR ROBERTO
+        </h2>
+        <p class="text-white text-xs tracking-widest uppercase mb-8 italic font-black">Bacharel Ed. Física UEM | Maringá - PR</p>
         <div class="flex justify-center space-x-8">
-            <a href="https://www.instagram.com/higorobertoo.personal?igsh=cTAycDBibTdsdGsw" class="text-gray-500 hover:text-white transition text-2xl"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5544988225166" class="text-gray-500 hover:text-green-500 transition text-2xl"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/higorobertoo.personal?igsh=cTAycDBibTdsdGsw" target="_blank" class="text-gray-500 hover:text-white transition text-2xl"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5544988225166" target="_blank" class="text-gray-500 hover:text-green-500 transition text-2xl"><i class="fab fa-whatsapp"></i></a>
         </div>
     </footer>
 
-    <a href="https://wa.me/5544988225166?text=Olá+Higor,+quero+começar+meu+treino!" class="whatsapp-fixed">
+    <a href="https://wa.me/5544988225166?text=Olá+Higor,+quero+começar+meu+treino!" target="_blank" class="whatsapp-fixed">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Sistema de Partículas Aleatórias
         const container = document.getElementById('particles-container');
         const particleCount = 50;
-
         for (let i = 0; i < particleCount; i++) {
             const p = document.createElement('div');
             p.className = 'particle';
-            
             const size = Math.random() * 5 + 2 + 'px';
-            const duration = Math.random() * 15 + 10 + 's';
-            const delay = Math.random() * 20 + 's';
-            
-            p.style.width = size;
-            p.style.height = size;
+            p.style.width = size; p.style.height = size;
             p.style.left = Math.random() * 100 + 'vw';
             p.style.top = '110vh';
-            p.style.animationDuration = duration;
-            p.style.animationDelay = delay;
-            
-            // Direções variadas
-            const drift = (Math.random() - 0.5) * 200 + 'px';
-            p.style.setProperty('--drift', drift);
-
+            p.style.animationDuration = Math.random() * 15 + 10 + 's';
+            p.style.animationDelay = Math.random() * 20 + 's';
             container.appendChild(p);
         }
     </script>
