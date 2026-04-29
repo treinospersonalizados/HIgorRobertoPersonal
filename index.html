@@ -61,14 +61,14 @@
         /* NOVA ANIMAÇÃO: Seta indicando para clicar em cima */
         .click-arrow {
             display: inline-block;
-            margin-left: 5px;
-            font-size: 0.8rem;
-            animation: pointUp 0.8s infinite alternate;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            animation: pointDown 0.8s infinite alternate;
         }
 
-        @keyframes pointUp {
-            0% { transform: translateY(0) rotate(-45deg); opacity: 0.5; }
-            100% { transform: translateY(-5px) rotate(-45deg); opacity: 1; }
+        @keyframes pointDown {
+            0% { transform: translateY(0); opacity: 0.5; }
+            100% { transform: translateY(5px); opacity: 1; }
         }
 
         /* Rodapé Estilizado */
@@ -235,18 +235,18 @@
             
             <div class="flex flex-wrap justify-center gap-12 md:gap-24 mb-12">
                 <a href="https://www.instagram.com/higorobertoo.personal" target="_blank" class="group flex flex-col items-center">
+                    <i class="fas fa-mouse-pointer click-arrow"></i>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="w-20 h-20 mb-4 group-hover:scale-110 transition duration-300" alt="Instagram">
                     <div class="flex items-center text-white font-bold text-sm tracking-tighter">
                         @HIGOROBERTOO.PERSONAL
-                        <i class="fas fa-mouse-pointer click-arrow"></i>
                     </div>
                 </a>
 
                 <a href="https://wa.me/5544988225166" target="_blank" class="group flex flex-col items-center">
+                    <i class="fas fa-mouse-pointer click-arrow"></i>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-20 h-20 mb-4 group-hover:scale-110 transition duration-300" alt="WhatsApp">
                     <div class="flex items-center text-white font-bold text-sm tracking-tighter">
                         WHATSAPP
-                        <i class="fas fa-mouse-pointer click-arrow"></i>
                     </div>
                 </a>
             </div>
