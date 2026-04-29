@@ -40,6 +40,26 @@
             to { transform: translateY(-100vh) translateX(100px); opacity: 0; }
         }
 
+        /* --- NOVAS BOLHAS EXPLODINDO --- */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            border: 1px solid rgba(255,255,255,0.08);
+            pointer-events: none;
+            opacity: 0;
+            animation: bubble-rise-pop var(--duration) ease-in-out infinite;
+        }
+
+        @keyframes bubble-rise-pop {
+            0% { transform: translateY(100px) scale(0.5); opacity: 0; }
+            20% { opacity: 0.3; }
+            80% { opacity: 0.3; transform: translateY(-20vh) scale(1.2); }
+            90% { transform: translateY(-25vh) scale(1.5); opacity: 0.4; }
+            100% { transform: translateY(-26vh) scale(2); opacity: 0; }
+        }
+        /* ------------------------------ */
+
         /* Banner Principal */
         .hero-section {
             position: relative;
@@ -281,6 +301,8 @@
 
     <script>
         const container = document.getElementById('particles-container');
+        
+        // Partículas originais
         const particleCount = 40;
         for (let i = 0; i < particleCount; i++) {
             const p = document.createElement('div');
@@ -293,6 +315,21 @@
             p.style.animationDelay = Math.random() * 10 + 's';
             container.appendChild(p);
         }
+
+        // --- NOVAS BOLHAS ---
+        const bubbleCount = 15;
+        for (let i = 0; i < bubbleCount; i++) {
+            const b = document.createElement('div');
+            b.className = 'bubble';
+            const size = Math.random() * 60 + 20 + 'px';
+            b.style.width = size; b.style.height = size;
+            b.style.left = Math.random() * 100 + 'vw';
+            b.style.bottom = Math.random() * 100 + 'vh';
+            b.style.setProperty('--duration', (Math.random() * 4 + 4) + 's');
+            b.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(b);
+        }
+        // --------------------
     </script>
 </body>
 </html>
