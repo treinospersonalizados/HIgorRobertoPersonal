@@ -58,6 +58,24 @@
             90% { transform: translateY(-25vh) scale(1.5); opacity: 0.4; }
             100% { transform: translateY(-26vh) scale(2); opacity: 0; }
         }
+
+        /* --- NOVOS RAIOS VERMELHOS --- */
+        .lightning {
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #ff0000, transparent);
+            filter: blur(1px) drop-shadow(0 0 10px #ff0000);
+            opacity: 0;
+            pointer-events: none;
+            animation: lightning-move var(--duration) linear infinite;
+        }
+
+        @keyframes lightning-move {
+            0% { transform: translateY(-100%) skewX(-20deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(110vh) skewX(-20deg); opacity: 0; }
+        }
         /* ------------------------------ */
 
         /* Banner Principal */
@@ -329,7 +347,19 @@
             b.style.animationDelay = Math.random() * 5 + 's';
             container.appendChild(b);
         }
-        // --------------------
+
+        // --- NOVOS RAIOS ---
+        const lightningCount = 8;
+        for (let i = 0; i < lightningCount; i++) {
+            const l = document.createElement('div');
+            l.className = 'lightning';
+            l.style.left = Math.random() * 100 + 'vw';
+            l.style.height = (Math.random() * 150 + 100) + 'px';
+            l.style.setProperty('--duration', (Math.random() * 2 + 1.5) + 's');
+            l.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(l);
+        }
     </script>
 </body>
 </html>
+```[cite: 1]
