@@ -256,26 +256,58 @@
     </section>
 
     <section id="planos" class="relative z-10 py-24 container mx-auto px-6">
-        <h3 class="text-4xl text-center font-impact mb-16 italic">Planos Acessíveis</h3>
-        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <h3 class="text-4xl text-center font-impact mb-16 italic">Escolha seu Plano</h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
-            <div class="card-aesthetic p-12 rounded-[40px] border-t-4 border-blue-600">
-                <h4 class="text-2xl font-bold mb-2 uppercase">Consultoria Online</h4>
-                <div class="text-6xl font-impact my-6">R$ 97<span class="text-sm font-light text-gray-500 ml-2">/mês</span></div>
-                <ul class="space-y-4 mb-10 text-gray-400 text-sm font-bold uppercase">
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> Treino Personalizado</li>
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> Suporte WhatsApp</li>
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> Vídeos de Execução</li>
-                </ul>
-                <a href="https://wa.me/5544988225166?text=Olá+Higor,+quero+assinar+a+Consultoria+Online!" target="_blank" class="block text-center bg-blue-600 py-4 rounded-xl font-black uppercase tracking-tighter">Assinar Agora</a>
+            <!-- PLANO MENSAL (ATUALIZADO) -->
+            <div class="card-aesthetic p-10 rounded-[40px] border-t-4 border-blue-600 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-center mb-6">
+                        <i class="fas fa-calendar-alt text-4xl text-blue-500"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2 uppercase text-center">Mensal Sem Fidelidade</h4>
+                    <div class="text-5xl font-impact my-6 text-center">R$ 250<span class="text-sm font-light text-gray-500 ml-2">/mês</span></div>
+                    <ul class="space-y-4 mb-10 text-gray-400 text-sm font-bold uppercase">
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Consultoria Online Completa</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Treino 100% Personalizado</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Suporte VIP WhatsApp</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Cancelamento a qualquer momento</li>
+                    </ul>
+                </div>
+                <a href="https://mpago.la/1sn7pv6" target="_blank" class="block text-center bg-blue-600 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-blue-700 transition">Assinar Plano Mensal</a>
             </div>
 
-            <div class="card-aesthetic p-12 rounded-[40px]">
-                <h4 class="text-2xl font-bold mb-2 uppercase">Personal Presencial</h4>
-                <div class="text-6xl font-impact my-6">R$ 350<span class="text-sm font-light text-gray-500 ml-2">/mês</span></div>
-                <p class="text-gray-400 text-sm mb-10 leading-relaxed font-bold uppercase">Atendimento VIP em academias de Maringá-PR. Vagas limitadas.</p>
-                <a href="https://wa.me/5544988225166?text=Olá+Higor,+tenho+interesse+no+Personal+Presencial+em+Maringá!" target="_blank" class="block text-center border-2 border-white/20 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-white hover:text-black transition">Consultar Vagas</a>
+            <!-- PLANO TRIMESTRAL (NOVO) -->
+            <div class="card-aesthetic p-10 rounded-[40px] border-t-4 border-orange-500 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-center mb-6">
+                        <i class="fas fa-bolt text-4xl text-orange-500"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2 uppercase text-center">Combo Trimestral</h4>
+                    <div class="text-5xl font-impact my-6 text-center">R$ 180<span class="text-sm font-light text-gray-500 ml-2">/mês</span></div>
+                    <p class="text-center text-xs text-orange-500 font-bold mb-6">ECONOMIA GARANTIDA POR 90 DIAS</p>
+                    <ul class="space-y-4 mb-10 text-gray-400 text-sm font-bold uppercase">
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> Avaliação Física Detalhada</li>
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> Planejamento de 3 meses</li>
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> Vídeos de execução corretos</li>
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> Acompanhamento Pró-Ativo</li>
+                    </ul>
+                </div>
+                <!-- CAMPO DE REDIRECIONAMENTO MERCADO PAGO -->
+                <a href="COLOQUE_AQUI_O_LINK_DO_MERCADO_PAGO" onclick="window.open('https://wa.me/5544988225166?text=Olá+Higor,+acabei+de+pagar+o+plano+Trimestral!');" target="_blank" class="block text-center bg-orange-600 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-orange-700 transition">Assinar Trimestral</a>
             </div>
+
+            <!-- PERSONAL PRESENCIAL -->
+            <div class="card-aesthetic p-10 rounded-[40px] lg:col-span-2 max-w-md mx-auto w-full">
+                <div class="flex justify-center mb-6">
+                    <i class="fas fa-user-friends text-4xl text-white"></i>
+                </div>
+                <h4 class="text-2xl font-bold mb-2 uppercase text-center">Personal Presencial</h4>
+                <div class="text-5xl font-impact my-6 text-center">R$ 350<span class="text-sm font-light text-gray-500 ml-2">/mês</span></div>
+                <p class="text-gray-400 text-sm mb-10 text-center leading-relaxed font-bold uppercase">Atendimento VIP em academias de Maringá-PR. Vagas limitadas.</p>
+                <a href="https://wa.me/5544988225166?text=Olá+Higor,+tenho+interesse+no+Personal+Presencial+em+Maringá!" target="_blank" class="block text-center border-2 border-white/20 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-white hover:text-black transition">Consultar Disponibilidade</a>
+            </div>
+
         </div>
     </section>
 
