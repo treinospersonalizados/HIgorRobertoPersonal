@@ -1,294 +1,841 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Higor Roberto | Consultoria Fitness Profissional</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+
     
+
     <style>
+
         body {
+
             background-color: #000;
+
             color: #fff;
+
             font-family: 'Montserrat', sans-serif;
+
             overflow-x: hidden;
+
         }
+
+
 
         .font-impact { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; }
 
+
+
         /* Fundo com Partículas Aleatórias */
+
         #particles-container {
+
             position: fixed;
+
             top: 0; left: 0; width: 100%; height: 100%;
+
             z-index: 0;
+
             pointer-events: none;
+
         }
+
+
 
         .particle {
+
             position: absolute;
+
             background: rgba(255, 255, 255, 0.3);
+
             border-radius: 50%;
+
             animation: float-random linear infinite;
+
         }
+
+
 
         @keyframes float-random {
+
             from { transform: translateY(0) translateX(0); opacity: 0; }
+
             20% { opacity: 0.4; }
+
             80% { opacity: 0.4; }
+
             to { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+
         }
 
-        /* --- BOLHAS --- */
+
+
+        /* --- NOVAS BOLHAS EXPLODINDO --- */
+
         .bubble {
+
             position: absolute;
+
             border-radius: 50%;
+
             background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+
             border: 1px solid rgba(255,255,255,0.08);
+
             pointer-events: none;
+
             opacity: 0;
+
             animation: bubble-rise-pop var(--duration) ease-in-out infinite;
+
         }
+
+
 
         @keyframes bubble-rise-pop {
+
             0% { transform: translateY(100px) scale(0.5); opacity: 0; }
+
             20% { opacity: 0.3; }
+
             80% { opacity: 0.3; transform: translateY(-20vh) scale(1.2); }
+
             90% { transform: translateY(-25vh) scale(1.5); opacity: 0.4; }
+
             100% { transform: translateY(-26vh) scale(2); opacity: 0; }
+
         }
 
-        /* --- RAIOS VERMELHOS --- */
+
+
+        /* --- NOVOS RAIOS VERMELHOS --- */
+
         .lightning {
+
             position: absolute;
+
             width: 2px;
+
             background: linear-gradient(to bottom, transparent, #ff0000, transparent);
+
             filter: blur(1px) drop-shadow(0 0 10px #ff0000);
+
             opacity: 0;
+
             pointer-events: none;
+
             animation: lightning-move var(--duration) linear infinite;
+
         }
+
+
 
         @keyframes lightning-move {
+
             0% { transform: translateY(-100%) skewX(-20deg); opacity: 0; }
+
             10% { opacity: 0.7; }
+
             90% { opacity: 0.7; }
+
             100% { transform: translateY(110vh) skewX(-20deg); opacity: 0; }
+
         }
+
+        /* ------------------------------ */
+
+
 
         /* Banner Principal */
+
         .hero-section {
+
             position: relative;
+
             background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+
                         url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover;
+
             height: 80vh;
+
             display: flex;
+
             align-items: center;
+
             z-index: 1;
+
         }
+
+
 
         .logo-inline {
+
             height: 40px;
+
             display: inline-block;
+
             vertical-align: middle;
+
             margin-right: 10px;
+
         }
+
+
+
+        /* NOVA ANIMAÇÃO: Seta sobrepondo o ícone */
 
         .icon-wrapper {
+
             position: relative;
+
             display: inline-block;
+
         }
+
+
 
         .click-arrow {
+
             position: absolute;
+
             top: 50%;
+
             left: 50%;
+
             transform: translate(-50%, -50%);
+
             font-size: 1.5rem;
+
             color: #fff;
+
             z-index: 20;
+
             pointer-events: none;
+
             text-shadow: 0 0 10px rgba(0,0,0,0.8);
+
             animation: pointOver 0.8s infinite alternate;
+
         }
+
+
 
         @keyframes pointOver {
+
             0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+
             100% { transform: translate(-50%, -70%) scale(1.2); opacity: 1; }
+
         }
+
+
+
+        /* Rodapé Estilizado */
 
         .social-footer {
+
             border-top: 1px solid rgba(255,255,255,0.1);
+
             background: linear-gradient(to top, #0a0a0a, #000);
+
         }
+
+
 
         .nav-link {
+
             border: 1px solid transparent;
+
             padding: 5px 15px;
+
             transition: 0.4s;
+
             font-weight: 700;
+
             font-size: 0.8rem;
+
             text-transform: uppercase;
+
         }
+
         .nav-link:hover {
+
             border-color: #fff;
+
             box-shadow: 0 0 10px rgba(255,255,255,0.5);
+
             border-radius: 5px;
+
         }
+
+
 
         .btn-pulse {
+
             background: #22c55e;
+
             animation: pulse-green 2s infinite;
+
         }
+
         @keyframes pulse-green {
+
             0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+
             70% { box-shadow: 0 0 20px 10px rgba(34, 197, 94, 0); }
+
             100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+
         }
+
+
 
         .card-aesthetic {
+
             background: rgba(255, 255, 255, 0.05);
+
             border: 1px solid rgba(255, 255, 255, 0.1);
+
             backdrop-filter: blur(10px);
+
             transition: 0.4s;
+
         }
+
         .card-aesthetic:hover {
+
             border-color: #3b82f6;
+
             transform: translateY(-5px);
+
         }
+
+
+
+        /* NOVO GLOW PARA O PERSONAL */
 
         .card-glow-cyan {
+
             border-color: #06b6d4 !important;
+
             box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+
             animation: glow-pulse-cyan 3s infinite;
+
         }
+
+
 
         @keyframes glow-pulse-cyan {
+
             0% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.2); }
+
             50% { box-shadow: 0 0 35px rgba(6, 182, 212, 0.6); border-color: #22d3ee !important; }
+
             100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.2); }
+
         }
 
+
+
         .whatsapp-fixed {
+
             position: fixed;
+
             bottom: 30px;
+
             right: 30px;
+
             background: #25d366;
+
             width: 60px; height: 60px;
+
             border-radius: 50%;
+
             display: flex; align-items: center; justify-content: center;
+
             font-size: 30px; color: #fff;
+
             z-index: 100;
+
             animation: pulse-simple 2s infinite;
+
         }
+
     </style>
+
 </head>
+
 <body class="bg-black">
+
+
 
     <div id="particles-container"></div>
 
+
+
     <header class="fixed w-full z-50 bg-black/90 border-b border-white/10 backdrop-blur-md">
+
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
             <h1 class="text-2xl font-impact text-white flex items-center">
+
                 <img src="logohigor.jpg" class="logo-inline" alt="HR Logo"> HIGOR ROBERTO
+
             </h1>
+
             <nav class="hidden md:flex space-x-4 items-center">
+
                 <a href="#sobre" class="nav-link">Sobre</a>
+
                 <a href="#servicos" class="nav-link">Serviços</a>
+
                 <a href="#planos" class="nav-link">Planos</a>
-                <a href="https://wa.me/5544988225166" target="_blank" class="btn-pulse px-6 py-2 rounded font-bold text-xs text-white">CONTATO</a>
+
+                <a href="https://wa.me/5544988225166?text=Olá+Higor!+Vi+seu+site+e+tenho+interesse+na+sua+consultoria.+Poderia+me+passar+mais+detalhes?" target="_blank" class="btn-pulse px-6 py-2 rounded font-bold text-xs text-white">CONTATO</a>
+
             </nav>
+
         </div>
+
     </header>
 
+
+
     <section class="hero-section">
+
         <div class="container mx-auto px-6 text-center">
+
             <h2 class="text-5xl md:text-8xl font-impact mb-4">Treino Inteligente,<br><span class="text-blue-500">Resultados Reais.</span></h2>
+
             <p class="text-lg md:text-xl text-gray-400 font-bold uppercase tracking-widest">Consultoria Online e Presencial | Maringá - PR</p>
+
             <div class="mt-10">
+
                 <a href="#planos" class="bg-blue-600 px-10 py-4 rounded font-black hover:bg-blue-700 transition uppercase tracking-tighter">Começar Agora</a>
+
             </div>
+
         </div>
+
     </section>
+
+
+
+    <section id="sobre" class="relative z-10 py-24 container mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row items-center gap-16">
+
+            <div class="md:w-1/2 w-full">
+
+                <div class="aspect-[4/5] bg-zinc-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative group">
+
+                    <img src="logohigor.jpg" alt="Higor Roberto" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+
+                        <p class="font-impact text-3xl">HIGOR ROBERTO</p>
+
+                        <p class="text-blue-500 font-bold">Graduado Bacharel pela UEM</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+            <div class="md:w-1/2">
+
+                <h3 class="text-4xl font-impact mb-6 text-white uppercase">Sobre o Treinador</h3>
+
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+
+                    Com formação em <strong>Bacharel em Educação Física pela UEM</strong> (Universidade Estadual de Maringá), utilizo a ciência do movimento para entregar resultados reais e sustentáveis.
+
+                </p>
+
+                <p class="text-gray-400 leading-relaxed mb-8 text-lg">
+
+                    Meu trabalho em Maringá-PR e no mundo digital é focado na individualidade biológica. Cada treino que monto é uma peça única de engenharia corporal, desenhada para superar seus limites com máxima segurança.
+
+                </p>
+
+                <div class="grid grid-cols-2 gap-6">
+
+                    <div class="border-l-4 border-blue-600 pl-4">
+
+                        <h4 class="font-bold text-white uppercase text-base">Consultoria</h4>
+
+                        <p class="text-gray-500 text-sm">Online e Presencial</p>
+
+                    </div>
+
+                    <div class="border-l-4 border-blue-600 pl-4">
+
+                        <h4 class="font-bold text-white uppercase text-base">Localização</h4>
+
+                        <p class="text-gray-500 text-sm">Maringá - PR</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="servicos" class="relative z-10 py-24 bg-white/[0.02]">
+
+        <div class="container mx-auto px-6">
+
+            <h3 class="text-4xl text-center font-impact mb-16">Metodologia Profissional</h3>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                <div class="card-aesthetic p-10 rounded-3xl text-center">
+
+                    <i class="fas fa-dumbbell text-4xl text-blue-500 mb-6"></i>
+
+                    <h4 class="text-xl font-bold mb-4 uppercase">Individualização</h4>
+
+                    <p class="text-gray-400">Treinos montados do zero para sua biomecânica. Nada de planilhas genéricas.</p>
+
+                </div>
+
+                <div class="card-aesthetic p-10 rounded-3xl text-center">
+
+                    <i class="fas fa-mobile-alt text-4xl text-blue-500 mb-6"></i>
+
+                    <h4 class="text-xl font-bold mb-4 uppercase">Suporte Premium</h4>
+
+                    <p class="text-gray-400">Acesso direto ao meu WhatsApp pessoal para dúvidas e ajustes de carga.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
 
     <section id="planos" class="relative z-10 py-24 container mx-auto px-6">
+
         <h3 class="text-4xl text-center font-impact mb-16 italic">Escolha seu Plano</h3>
+
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
             
+
             <div class="card-aesthetic p-10 rounded-[40px] border-t-4 border-blue-600 flex flex-col justify-between">
+
                 <div>
+
                     <div class="flex justify-center mb-6">
+
                         <i class="fas fa-calendar-alt text-4xl text-blue-500"></i>
+
                     </div>
-                    <h4 class="text-2xl font-bold mb-2 uppercase text-center text-blue-500">Mensal Sem Fidelidade</h4>
+
+                    <h4 class="text-2xl font-bold mb-2 uppercase text-center">Mensal Sem Fidelidade</h4>
+
                     <div class="text-5xl font-impact my-6 text-center">R$ 250<span class="text-sm font-light text-gray-500 ml-2">/mensal</span></div>
+
                     <ul class="space-y-4 mb-10 text-gray-400 text-sm font-bold uppercase">
+
                         <li><i class="fas fa-check text-blue-500 mr-2"></i> Consultoria Online Completa</li>
+
                         <li><i class="fas fa-check text-blue-500 mr-2"></i> Avaliação física online</li>
+
                         <li><i class="fas fa-check text-blue-500 mr-2"></i> Check-in quinzenal</li>
+
                         <li><i class="fas fa-check text-blue-500 mr-2"></i> Feedback de treino</li>
+
                         <li><i class="fas fa-check text-blue-500 mr-2"></i> Aplicativo com vídeos</li>
+
                     </ul>
+
                 </div>
-                <a href="https://mpago.la/1sn7pv6" target="_blank" class="block text-center bg-sky-400 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-sky-300 transition text-black">Assinar Mensal</a>
+
+                <a href="https://mpago.la/1sn7pv6" target="_blank" class="block text-center bg-blue-600 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-cyan-400 transition text-black">Assinar Mensal</a>
+
             </div>
+
+
 
             <div class="card-aesthetic p-10 rounded-[40px] border-t-4 border-orange-500 flex flex-col justify-between">
+
                 <div>
+
                     <div class="flex justify-center mb-6">
+
                         <i class="fas fa-bolt text-4xl text-orange-500"></i>
+
                     </div>
-                    <h4 class="text-2xl font-bold mb-2 uppercase text-center text-orange-500">Combo Trimestral</h4>
+
+                    <h4 class="text-2xl font-bold mb-2 uppercase text-center">Combo Trimestral</h4>
+
                     <div class="text-5xl font-impact my-6 text-center">R$ 540<span class="text-sm font-light text-gray-500 ml-2">/trimestral</span></div>
+
                     <p class="text-center text-xs text-orange-500 font-bold mb-6">ECONOMIA GARANTIDA</p>
+
                     <ul class="space-y-4 mb-10 text-gray-400 text-sm font-bold uppercase">
+
                         <li><i class="fas fa-check text-orange-500 mr-2"></i> Avaliação Física Detalhada</li>
+
                         <li><i class="fas fa-check text-orange-500 mr-2"></i> Ajustes semanais</li>
+
                         <li><i class="fas fa-check text-orange-500 mr-2"></i> Planejamento de 3 meses</li>
+
                         <li><i class="fas fa-check text-orange-500 mr-2"></i> Resposta rápida</li>
+
                         <li><i class="fas fa-check text-orange-500 mr-2"></i> Acompanhamento Pró-Ativo</li>
+
                     </ul>
+
                 </div>
-                <a href="https://wa.me/5544988225166" target="_blank" class="block text-center bg-orange-600 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-orange-700 transition text-black">Assinar Trimestral</a>
+
+                <a href="https://wa.me/5544988225166?text=Olá+Higor!+Tenho+interesse+no+Plano+Trimestral." target="_blank" class="block text-center bg-orange-600 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-orange-700 transition text-black">Assinar Trimestral</a>
+
             </div>
 
+
+
             <div class="card-aesthetic p-10 rounded-[40px] border-t-4 border-yellow-500 flex flex-col justify-between" style="box-shadow: 0 0 20px rgba(234, 179, 8, 0.15);">
+
                 <div>
+
                     <div class="flex justify-center mb-6">
+
                         <i class="fas fa-crown text-4xl text-yellow-500"></i>
+
                     </div>
+
                     <h4 class="text-2xl font-bold mb-2 uppercase text-center text-yellow-500">Plano Semestral</h4>
+
                     <div class="text-4xl font-impact my-6 text-center text-white">CONSULTAR VALOR</div>
+
                     <p class="text-center text-xs text-yellow-500 font-bold mb-6 uppercase tracking-wider">O Plano mais completo</p>
+
                     <ul class="space-y-3 mb-10 text-gray-400 text-sm font-bold uppercase">
+
                         <li><i class="fas fa-plus text-yellow-500 mr-2"></i> Todos os itens do trimestral</li>
+
                         <li><i class="fas fa-book text-yellow-500 mr-2"></i> Coleção de E-books Exclusivos</li>
+
                         <li><i class="fas fa-video text-yellow-500 mr-2"></i> Mentoria Semanal Individual</li>
+
                         <li><i class="fas fa-dumbbell text-yellow-500 mr-2"></i> Treino Flexível (Casa/Academia)</li>
+
                         <li class="bg-yellow-500/10 p-2 rounded border border-yellow-500/30 text-yellow-500"><i class="fas fa-tag mr-2"></i> 10% de desconto na renovação</li>
+
                     </ul>
+
                 </div>
-                <a href="https://wa.me/5544988225166" target="_blank" class="block text-center bg-yellow-600 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-yellow-500 transition text-black">Garantir Plano Semestral</a>
+
+                <a href="https://wa.me/5544988225166?text=Olá+Higor!+Quero+saber+mais+sobre+o+Plano+Semestral+com+Mentoria+e+E-books." target="_blank" class="block text-center bg-yellow-600 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-yellow-500 transition text-black">Garantir Plano Semestral</a>
+
+            </div>
+
+
+
+            <div class="card-aesthetic card-glow-cyan p-10 rounded-[40px] lg:col-span-3 max-w-md mx-auto w-full border-t-4">
+
+                <div class="flex justify-center mb-6">
+
+                    <i class="fas fa-user-friends text-4xl text-cyan-400"></i>
+
+                </div>
+
+                <h4 class="text-2xl font-bold mb-4 uppercase text-center text-cyan-400">Personal Presencial</h4>
+
+                <div class="text-3xl font-impact mb-6 text-center text-white uppercase tracking-widest">Consultar Valores</div>
+
+                <p class="text-gray-400 text-sm mb-10 text-center leading-relaxed font-bold uppercase">Atendimento VIP em academias de Maringá-PR. Vagas limitadas.</p>
+
+                <a href="https://wa.me/5544988225166?text=Olá+Higor,+gostaria+de+mais+informações+sobre+o+personal+presencial." target="_blank" class="block text-center bg-cyan-600 py-4 rounded-xl font-black uppercase tracking-tighter hover:bg-cyan-500 transition text-black">Consultar Disponibilidade</a>
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="social-footer py-16 text-center relative z-10">
+
+        <div class="container mx-auto px-6">
+
+            <div class="flex flex-wrap justify-center gap-12 md:gap-24 mb-12">
+
+                <a href="https://www.instagram.com/higorobertoo.personal" target="_blank" class="group flex flex-col items-center">
+
+                    <div class="icon-wrapper">
+
+                        <i class="fas fa-mouse-pointer click-arrow"></i>
+
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="w-20 h-20 mb-4 group-hover:scale-110 transition duration-300" alt="Instagram">
+
+                    </div>
+
+                    <div class="flex items-center text-white font-bold text-sm tracking-tighter">
+
+                        @HIGOROBERTOO.PERSONAL
+
+                    </div>
+
+                </a>
+
+
+
+                <a href="https://wa.me/5544988225166?text=Olá+Higor!+Vi+seu+site+e+tenho+interesse+na+sua+consultoria.+Poderia+me+passar+mais+detalhes?" target="_blank" class="group flex flex-col items-center">
+
+                    <div class="icon-wrapper">
+
+                        <i class="fas fa-mouse-pointer click-arrow"></i>
+
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-20 h-20 mb-4 group-hover:scale-110 transition duration-300" alt="WhatsApp">
+
+                    </div>
+
+                    <div class="flex items-center text-white font-bold text-sm tracking-tighter">
+
+                        WHATSAPP
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+
+            <div class="opacity-50">
+
+                <h2 class="text-xl font-impact mb-2 flex justify-center items-center">
+
+                    <img src="logohigor.jpg" class="logo-inline h-6" alt="HR Logo"> HIGOR ROBERTO
+
+                </h2>
+
+                <p class="text-[10px] uppercase tracking-[4px]">Bacharel Ed. Física UEM | Maringá - PR</p>
+
             </div>
 
         </div>
-    </section>
+
+    </footer>
+
+
+
+    <a href="https://wa.me/5544988225166?text=Olá+Higor!+Vi+seu+site+e+tenho+interesse+na+sua+consultoria.+Poderia+me+passar+mais+detalhes?" target="_blank" class="whatsapp-fixed">
+
+        <i class="fab fa-whatsapp"></i>
+
+    </a>
+
+
 
     <script>
+
         const container = document.getElementById('particles-container');
+
         const particleCount = 40;
+
         for (let i = 0; i < particleCount; i++) {
+
             const p = document.createElement('div');
+
             p.className = 'particle';
+
             const size = Math.random() * 3 + 1 + 'px';
+
             p.style.width = size; p.style.height = size;
+
             p.style.left = Math.random() * 100 + 'vw';
+
             p.style.top = '110vh';
+
             p.style.animationDuration = Math.random() * 10 + 8 + 's';
+
             p.style.animationDelay = Math.random() * 10 + 's';
+
             container.appendChild(p);
+
         }
+
+
+
+        const bubbleCount = 15;
+
+        for (let i = 0; i < bubbleCount; i++) {
+
+            const b = document.createElement('div');
+
+            b.className = 'bubble';
+
+            const size = Math.random() * 60 + 20 + 'px';
+
+            b.style.width = size; b.style.height = size;
+
+            b.style.left = Math.random() * 100 + 'vw';
+
+            b.style.bottom = Math.random() * 100 + 'vh';
+
+            b.style.setProperty('--duration', (Math.random() * 4 + 4) + 's');
+
+            b.style.animationDelay = Math.random() * 5 + 's';
+
+            container.appendChild(b);
+
+        }
+
+
+
+        const lightningCount = 8;
+
+        for (let i = 0; i < lightningCount; i++) {
+
+            const l = document.createElement('div');
+
+            l.className = 'lightning';
+
+            l.style.left = Math.random() * 100 + 'vw';
+
+            l.style.height = (Math.random() * 150 + 100) + 'px';
+
+            l.style.setProperty('--duration', (Math.random() * 2 + 1.5) + 's');
+
+            l.style.animationDelay = Math.random() * 5 + 's';
+
+            container.appendChild(l);
+
+        }
+
     </script>
+
 </body>
+
 </html>
