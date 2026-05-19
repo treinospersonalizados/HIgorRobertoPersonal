@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://treinospersonalizados.github.io/HIgorRobertoPersonal/">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
     <loc>https://treinospersonalizados.github.io/HIgorRobertoPersonal/</loc>
     <priority>1.00</priority>
-  </url>
-
-  <url>
-    <loc>https://treinospersonalizados.github.io/HIgorRobertoPersonal/sobre.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://treinospersonalizados.github.io/HIgorRobertoPersonal/contato.html</loc>
-    <priority>0.80</priority>
   </url>
 
 </urlset>
